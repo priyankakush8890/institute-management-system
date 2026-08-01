@@ -414,6 +414,7 @@ def savestudentnotification(request):
         notification.save()
         messages.success(request,'Notification send successfully')
         return redirect('studentnotification')
+    return render(request,'hod/studentnotification.html')
 
 
 @login_required(login_url='/')
@@ -495,10 +496,10 @@ def submitsreply(request):
         f.feedbackreply=reply
         f.save()
         messages.success(request,'Replied On feedback successfully')
-        return redirect('studentfeedback')
+        return redirect('sfeedback')
 
         
-    return redirect('studentfeedback')
+    return redirect('sfeedback')
 
 
 @login_required(login_url='/')
@@ -519,10 +520,10 @@ def submitstreply(request):
         f.feedbackreply=reply
         f.save()
         messages.success(request,'Replied On feedback successfully')
-        return redirect('studentfeedback')
+        return redirect('stfeedback')
 
         
-    return redirect('studentfeedback')
+    return redirect('stfeedback')
 
 
 

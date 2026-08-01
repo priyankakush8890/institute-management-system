@@ -33,7 +33,7 @@ urlpatterns = [
     path('dologout',views.dologout,name='dologout'),
     
     #profile
-    path('profile',views.profile,name='profile'),
+    path('profile/',views.profile,name='profile'),
     
     path('profile/update',views.profileUpdate,name='profileUpdate'),
     

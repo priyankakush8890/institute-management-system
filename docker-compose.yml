@@ -1,0 +1,14 @@
+
+
+services:
+  web:
+    build: .
+    container_name: institute-management-system
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - .:/app
+
+    command: gunicorn student.wsgi:application --bind 0.0.0.0:8000

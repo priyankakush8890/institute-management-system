@@ -27,8 +27,8 @@ class Branch(models.Model):
         return self.name
     
 class Acad_year(models.Model):
-    start=models.CharField(default=datetime.now().date(),blank=True,max_length=100)
-    end=models.CharField(default=datetime.now().date(),blank=True,max_length=100)
+    start=models.CharField(default=timezone.now,blank=True,max_length=100)
+    end=models.CharField(default=timezone.now,blank=True,max_length=100)
     created_at=models.DateField(auto_now_add=True,null=True)
     updated_at=models.DateField(auto_now=True,null=True)
     

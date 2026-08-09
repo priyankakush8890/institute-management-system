@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment History</title>
+</head>
+
+<body>
+
+<h2>Payment History</h2>
+
+<table border="1" cellpadding="10">
+
+    <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Order ID</th>
+        <th>Payment ID</th>
+        <th>Status</th>
+    </tr>
+
+    {% for payment in payments %}
+
+    <tr>
+        <td>{{ payment.created_at }}</td>
+
+        <td>
+            ₹{{ payment.amount }}
+        </td>
+
+        <td>
+            {{ payment.razorpay_order_id }}
+        </td>
+
+        <td>
+            {{ payment.razorpay_payment_id|default:"-" }}
+        </td>
+
+        <td>
+            {{ payment.status }}
+        </td>
+    </tr>
+
+    {% empty %}
+
+    <tr>
+        <td colspan="5">
+            No payment records found.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+<br>
+
+<a href="{% url 'fee_payment' %}">
+    Back to Fee Dashboard
+</a>
+
+</body>
+</html>

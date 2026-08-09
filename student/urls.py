@@ -14,14 +14,23 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 from .import views, hodviews,staffviews,studentviews
+
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/', include('stuapp.api_urls')),
     path('base/',views.base,name='base'),
     path('',views.loginn,name='loginn'),
     
@@ -135,5 +144,28 @@ urlpatterns = [
     path('Student/submitfeedback',studentviews.submitstudentfeedback,name='submitstudentfeedback'),
     path('Student/feedbacklist',studentviews.studentfeedbacklist,name='studentfeedbacklist'),
     path('Student/viewattendance',studentviews.viewattendance,name='stviewattendance'),
+    path('fee-payment/',views.fee_payment,name='fee_payment'),
+    path(
+    'fee-payment/',
+    views.fee_payment,
+    name='fee_payment'
+),
+
+path(
+    'create-payment/',
+    views.create_payment,
+    name='create_payment'
+),
+   path(
+    'payment-success/',
+    views.payment_success,
+    name='payment_success'
+),
+
+   path(
+    'payment-history/',
+    views.payment_history,
+    name='payment_history'
+),
     
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -1,7 +1,11 @@
+
+
 from django.shortcuts import render,redirect,HttpResponse
 from stuapp.models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+
 def home(request):
     
     studentID=Student.objects.get(admin=request.user.id)
@@ -112,3 +116,5 @@ def viewattendance(request):
         
     return render(request,'student/viewattendance.html',{'subjects':subjects,'get_subject':get_subject,'action':action,
                                                          'attendance_report':attendance_report})
+
+

@@ -1,9 +1,10 @@
-
-
 services:
   web:
     build: .
     container_name: institute-management-system
+
+    env_file:
+      - .env
 
     ports:
       - "8000:8000"

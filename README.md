@@ -50,24 +50,28 @@ The application is containerized using **Docker** and deployed on **AWS EC2** wi
 
 ---
 
-## ⚙️ Getting Started
-
-```bash
-git clone https://github.com/yourusername/IN-TUT.git
-cd IN-TUT
-
+⚙️ Getting Started
+1. Clone the repository
+git clone https://github.com/priyankakush8890/institute-management-system.git
+cd institute-management-system
+2. Install dependencies
+It is recommended to create and activate a virtual environment first.
+Windows
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
-
+Linux / macOS
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+3. Apply database migrations
 python manage.py migrate
-
+4. Start the development server
 python manage.py runserver
-```
-
-### Run with Docker
-
-```bash
+Open http://127.0.0.1:8000 in your browser.
+Run with Docker
+Build and start the application using Docker Compose:
 docker compose up --build
-```
-
-
-
+In the EC2 deployment, the host port is mapped to 127.0.0.1:8001 and the container runs Gunicorn on port 8000. Local Docker port mapping may differ depending on your docker-compose.yml configuration.
+🌐 Live Demo
+Live Website: https://ims-priyanka.duckdns.org

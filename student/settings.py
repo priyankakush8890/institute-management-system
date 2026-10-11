@@ -36,7 +36,7 @@ ALLOWED_HOSTS = os.environ.get(
 ).split(",")
 
 CSRF_TRUSTED_ORIGINS = os.environ.get(
-    "https://ims-priyanka.duckdns.org",
+    "CSRF_TRUSTED_ORIGINS",
     ""
 ).split(",")
 
@@ -98,13 +98,6 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
-        "TIMEOUT": 300,
-    }
-}
 
 
 # Password validation
@@ -147,9 +140,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT='/static/'
-STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
 ]
 
 AUTH_USER_MODEL='stuapp.CustomUser'
@@ -183,3 +177,4 @@ SIMPLE_JWT = {
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
 }
+

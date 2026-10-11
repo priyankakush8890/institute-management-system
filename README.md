@@ -24,7 +24,7 @@ A scalable **full-stack Institute Management System** built with **Django** to d
 | **Backend** | Python, Django, Django REST Framework |
 | **Database** | SQLite |
 | **Frontend** | HTML5, CSS3, Bootstrap, JavaScript |
-| **Authentication** | JWT Authentication |
+| **Authentication** | JWT Authentication | Session Authentication
 | **Deployment** | Docker, Docker Compose, Gunicorn, Nginx, AWS EC2 |
 | **DevOps** | GitHub Actions (CI/CD) |
 | **API Testing** | Postman |

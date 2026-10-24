@@ -74,5 +74,6 @@ Build and start the application using Docker Compose:
 docker compose up --build
 In the EC2 deployment, the host port is mapped to 127.0.0.1:8001 and the container runs Gunicorn on port 8000. Local Docker port mapping may differ depending on your docker-compose.yml configuration.
 
+
 🌐 Live Demo
 Live Website: https://ims-priyanka.duckdns.org
